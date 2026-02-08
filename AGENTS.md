@@ -4,6 +4,20 @@
 **Last Audited:** _not yet audited_
 **Purpose:** Execution checklist for three phases: pre-build, post-first-build, and continuous audit/fix/iterate.
 
+---
+
+**License:** CC BY 4.0 (Creative Commons Attribution 4.0 International)
+**Copyright:** © 2026 Hypercart DBA Neochrome, Inc.
+**Attribution Required:** When sharing or adapting this work, you must:
+- Credit "Hypercart DBA Neochrome, Inc." as the original author
+- Provide a link to https://creativecommons.org/licenses/by/4.0/
+- Indicate if changes were made
+- Not remove this attribution notice
+
+**License Terms:** https://creativecommons.org/licenses/by/4.0/legalcode
+
+---
+
 ## 0) How to Use This Doc
 - Treat each section as a pass/fail checklist.
 - Do not mark items done without code evidence (files, tests, policies, or logs).
