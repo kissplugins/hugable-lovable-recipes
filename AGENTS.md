@@ -40,7 +40,7 @@
 | 6 | FSM | Correct pattern per complexity tier, no impossible states | [ ] | [ ] | [ ] |
 | 7 | Observability | Async boundaries emit telemetry, errors normalize to `AppError` | [ ] | [ ] | [ ] |
 | 8 | Post Build | `typecheck`/`lint`/`test` green, journeys pass, RLS verified | [ ] | [ ] | [ ] |
-| 9 | Continuous Audit | Runtime signals reviewed, fixes shipped, doc updated | [ ] | [ ] | [ ] |
+| 9 | Continuous Audit | Runtime signals reviewed, fixes shipped, changelog updated | [ ] | [ ] | [ ] |
 | 10 | RLS | `app_config` public read, admin-only write, policies current | [ ] | [ ] | [ ] |
 | 11 | Theme | Extension points untouched, no premature branding | [ ] | [ ] | [ ] |
 | 12 | Key Paths | File structure matches contracted paths | [ ] | [ ] | [ ] |
@@ -145,7 +145,7 @@ type Result<T> = { ok: true; data: T } | { ok: false; error: AppError };
 - Prioritize by user impact, security risk, and recurrence.
 - Fix in small diffs (one pattern/file cluster at a time).
 - Re-verify with typecheck/lint/tests/db diff and re-test touched journeys.
-- Record learnings by updating this document.
+- Record violations/lessons in `CHANGELOG.md` with `#lessonslearned`.
 - Repeat at least once per release cycle.
 
 ## 10) Supabase RLS Requirements Checklist
@@ -168,15 +168,14 @@ type Result<T> = { ok: true; data: T } | { ok: false; error: AppError };
 - Supabase client: `src/integrations/supabase/`
 - Edge functions: `supabase/functions/`
 
-## 13) Violations Log (Learning Artifact)
-Track when/why architectural rules were broken to inform future decisions.
-
-| Date | Section Violated | Reason | Outcome | Lesson Learned |
-|------|------------------|--------|---------|----------------|
-| _Example: 2026-01-15_ | _Section 3 (CMS)_ | _Tight deadline, skipped service layer_ | _3 components duplicated JSON.parse logic_ | _Always create service layer first; saves time long-term_ |
-| | | | | |
+## 13) Violations -> `CHANGELOG.md` Policy
+Do not log rule violations in this file. Log each violation and lesson in `CHANGELOG.md`.
 
 **Instructions:**
-- Add entry when intentionally breaking a rule from Sections 1-12.
-- Include date, violated section, business reason, technical outcome, and lesson.
-- Review quarterly to identify patterns and update checklists.
+- Add a changelog entry whenever a rule from Sections 1-12 is intentionally broken.
+- Include `#lessonslearned` in each entry.
+- Include: date, violated section, business reason, technical outcome, and fix/next action.
+- Review `#lessonslearned` entries quarterly and convert repeated patterns into checklist updates.
+
+**Entry template (in `CHANGELOG.md`):**
+`- YYYY-MM-DD: [Section X] reason -> outcome -> next action #lessonslearned`

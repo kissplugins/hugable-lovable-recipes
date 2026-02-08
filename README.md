@@ -1,12 +1,29 @@
 # Hugable Lovable Recipes
 
-A monitoring/uptime tracking web application built with React, TypeScript, Vite, and Supabase.
+This doc/system can be used by **non-technical users, rapid prototypers, and senior developers**.
+
+## How to Use This System
+
+### With Lovable AI:
+1. **Before starting:** Upload AGENTS.md to Lovable chat before requesting your first draft
+2. **First interaction:** Ask Lovable to save AGENTS.md to its code repository for the project
+3. **After first draft:** Request a compliance audit against compliane matrix.
+See: [Section 0.1 (Compliance Matrix)](./AGENTS.md#01-compliance-matrix-living-dashboard)
+4. **Each build cycle:** Reset checkboxes in Section 0.1 and update "Last Audited" date in AGENTS.md header
+
+### With Other AI Assistants (Cursor, GitHub Copilot, Augment, etc.):
+1. **Setup:** Add AGENTS.md to your project root
+2. **During development:** Reference it in prompts: "Follow architecture rules in AGENTS.md"
+3. **Before commits:** Manually verify compliance using Section 0.1 checklist
+4. **When breaking rules:** Document in Section 13 (Changelog)
+
+See [AGENTS.md Section 0](./AGENTS.md#0-how-to-use-this-doc) for detailed workflow.
 
 ## Architecture
 
 This project follows a **checklist-driven architecture** approach. All architectural decisions, design patterns, and development workflows are documented in:
 
-📋 **[AGENTS.md](./AGENTS.md)** - Checklist-Driven Architecture Guide
+📋 **[AGENTS.md](./AGENTS.md)** - Checklist-Driven Architecture Guide for Lovable and other AI agents.
 
 The AGENTS.md document provides:
 - Pre-build, build, and post-build checklists
@@ -15,20 +32,45 @@ The AGENTS.md document provides:
 - CMS content management guidelines
 - Continuous audit and improvement processes
 
-## Tech Stack
+## Tech Stack Assumptions
 
 - **Frontend**: React + TypeScript + Vite
 - **Backend**: Supabase (database + auth + edge functions)
 - **State Management**: Zustand
 - **UI Components**: Component-based with unified layout system
 
-## Key Features
+## Why This System Works
 
-- User authentication with role-based access (users + admins)
-- Monitor management and uptime tracking
-- Events feed (max 500 events)
-- Admin CMS for content management
-- Status page and changelog
+This architecture guide is built on **proven software engineering principles** that have stood the test of time over decades:
+
+### **SOLID Principles**
+- **Single Responsibility**: Each component, service, and store has one clear purpose
+- **Open/Closed**: Extend behavior through composition, not modification
+- **Liskov Substitution**: Implementations are swappable without breaking contracts
+- **Interface Segregation**: Small, focused interfaces prevent unnecessary dependencies
+- **Dependency Inversion**: Depend on abstractions, not concrete implementations
+
+### **DRY (Don't Repeat Yourself)**
+- One canonical implementation per behavior (one layout system, one auth source, one CMS pattern)
+- Service layers eliminate duplicate data access logic
+- Typed contracts prevent reimplementation of the same logic
+
+### **State Hygiene**
+- Clear separation: local UI state vs. shared state vs. persisted data
+- Explicit async state modeling (`idle | loading | success | error`)
+- No duplicate writable copies of the same entity
+
+### **Observability & Error Handling**
+- Standardized error contracts across all boundaries
+- Telemetry at every async operation
+- Normalized error categories for consistent UX
+
+### **Continuous Verification**
+- Compliance matrix (Section 0.1) provides measurable checkpoints
+- Violations log (Section 13) creates a learning feedback loop
+- Automated + manual checks prevent architectural drift
+
+**Result:** Maintainable, testable, and scalable codebases that AI assistants and human developers can confidently extend without introducing technical debt.
 
 ## Getting Started
 
