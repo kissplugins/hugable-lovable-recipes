@@ -1,8 +1,8 @@
 # AGENTS.md - Checklist-Driven Architecture Guide (Lovable TS/JS/React/Vite/Supabase)
-**Version:** 1.2
-**Last Updated:** 2026-02-08
-**Last Audited:** _not yet audited_
-**Purpose:** Execution checklist for three phases: pre-build, post-first-build, and continuous audit/fix/iterate.
+**Version:** 1.2  
+**Last Updated:** 2026-02-08  
+**Last Audited:** _not yet audited_  
+**Purpose:** Execution checklist for three phases: pre-build, post-first-build, and continuous audit/fix/iterate.  
 
 ---
 
